@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { GOOGLE_FORM_EMBED_URL, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF } from "../consts";
+---
+
+<Layout
+	title="Apply — A Clear Path"
+	description="Apply for one-on-one mentoring with A Clear Path. No commitment — the first meeting is free."
+>
+	<section class="intro">
+		<span class="eyebrow">Apply</span>
+		<h1>Let's Get Started</h1>
+		<p class="lede">
+			Applying doesn't commit you to anything. The first meeting is free and is simply a chance to
+			meet, ask questions, and see if it's a good fit — for your son and for our family.
+		</p>
+	</section>
+
+	<section class="steps">
+		<div class="step">
+			<span class="step-number">1</span>
+			<p>Fill out the short form below.</p>
+		</div>
+		<div class="step">
+			<span class="step-number">2</span>
+			<p>We'll set up a free first meeting to get to know each other.</p>
+		</div>
+		<div class="step">
+			<span class="step-number">3</span>
+			<p>If it's a good fit, we start weekly sessions.</p>
+		</div>
+	</section>
+
+	<section class="form-section">
+		{
+			GOOGLE_FORM_EMBED_URL ? (
+				<iframe
+					src={GOOGLE_FORM_EMBED_URL}
+					width="100%"
+					height="1200"
+					title="A Clear Path application form"
+				>
+					Loading…
+				</iframe>
+			) : (
+				<div class="form-placeholder">
+					<h2>Application Form Coming Soon</h2>
+					<p>
+						The application form isn't embedded yet. In the meantime, reach out directly and we'll
+						get you set up.
+					</p>
+					<p class="contact-line">
+						<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+					</p>
+					<p class="contact-line">
+						<a href={`tel:+1${CONTACT_PHONE_HREF}`}>{CONTACT_PHONE}</a>
+					</p>
+				</div>
+			)
+		}
+	</section>
+</Layout>
+
+<style>
+	.lede {
+		font-size: 1.1em;
+		max-width: 640px;
+	}
+	.steps {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5em;
+		padding: 2.5em 0;
+		border-top: 1px solid var(--border);
+		margin-top: 1em;
+	}
+	.step {
+		border: 1px solid var(--border);
+		padding: 1.5em;
+		text-align: center;
+	}
+	.step-number {
+		display: block;
+		font-family: var(--font-heading);
+		font-size: 2em;
+		color: var(--gold);
+		margin-bottom: 0.3em;
+	}
+	.step p {
+		margin: 0;
+	}
+	.form-section {
+		padding-top: 2.5em;
+		border-top: 1px solid var(--border);
+		margin-top: 1em;
+	}
+	.form-section iframe {
+		border: 1px solid var(--border);
+	}
+	.form-placeholder {
+		border: 1px solid var(--border);
+		padding: 3em 2em;
+		text-align: center;
+	}
+	.contact-line {
+		margin: 0.3em 0;
+		font-size: 1.1em;
+	}
+	@media (max-width: 700px) {
+		.steps {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
