@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 
 // The source material only listed people to reach out to for quotes, not
 // actual quotes. Replace each `quote` below with what they say once you've
-// collected it — don't publish these placeholders as-is.
+// collected it. Don't publish these placeholders as-is.
 const testimonials = [
 	{
 		quote: "[Add Saba's testimonial here.]",
@@ -29,7 +29,7 @@ const testimonials = [
 ---
 
 <Layout
-	title="Testimonials — A Clear Path"
+	title="Testimonials | A Clear Path"
 	description="What parents and colleagues say about mentoring with A Clear Path."
 >
 	<section class="intro">
@@ -41,6 +41,7 @@ const testimonials = [
 		{
 			testimonials.map((t) => (
 				<figure class="card">
+					<span class="mark" aria-hidden="true">&rdquo;</span>
 					<blockquote>{t.quote}</blockquote>
 					<figcaption>
 						<span class="name">{t.name}</span>
@@ -65,13 +66,23 @@ const testimonials = [
 	}
 	.card {
 		border: 1px solid var(--border);
-		padding: 1.8em;
+		border-top: 3px solid var(--gold);
+		padding: 1.8em 1.8em 1.6em 1.8em;
 		margin: 0;
+		position: relative;
+	}
+	.mark {
+		display: block;
+		font-family: var(--font-heading);
+		font-size: 3em;
+		line-height: 1;
+		color: var(--gold);
+		margin-bottom: 0.1em;
 	}
 	blockquote {
 		font-family: var(--font-heading);
 		font-size: 1.2em;
-		margin: 0 0 1em 0;
+		margin: 0 0 1.2em 0;
 		padding: 0;
 		border: none;
 		color: var(--deep-green);
@@ -79,6 +90,8 @@ const testimonials = [
 	figcaption {
 		display: flex;
 		flex-direction: column;
+		padding-top: 1em;
+		border-top: 1px solid var(--border);
 	}
 	.name {
 		font-weight: 700;

@@ -1,4 +1,6 @@
 ---
+import { NAV_WORDMARK } from "../consts";
+
 const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
 
 const links = [
@@ -12,7 +14,7 @@ const isActive = (href: string) => pathname === href;
 
 <header>
 	<nav>
-		<a href="/" class="wordmark">A Clear Path</a>
+		<a href="/" class="wordmark">{NAV_WORDMARK}</a>
 		<div class="nav-links">
 			{
 				links.map((link) => (
@@ -43,26 +45,30 @@ const isActive = (href: string) => pathname === href;
 		align-items: center;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		gap: 0.5em 1em;
-		padding: 1em 0;
+		gap: 0.6em 1.5em;
+		padding: 1.1em 0;
 	}
 	.wordmark {
 		font-family: var(--font-heading);
-		font-size: 1.5em;
+		font-style: italic;
+		font-size: 1.15em;
+		letter-spacing: 0.01em;
 		color: var(--deep-green);
 		text-decoration: none;
+		white-space: nowrap;
 	}
 	.nav-links {
 		display: flex;
 		align-items: center;
-		gap: 0.5em;
+		gap: 0.3em;
 	}
 	.nav-link {
 		font-family: var(--font-body);
+		font-size: 0.96em;
 		color: var(--deep-green);
 		text-decoration: none;
 		padding: 0.4em 0.2em;
-		margin: 0 0.6em;
+		margin: 0 0.7em;
 		border-bottom: 3px solid transparent;
 	}
 	.nav-link.active {
@@ -70,6 +76,7 @@ const isActive = (href: string) => pathname === href;
 		font-weight: 700;
 	}
 	.nav-apply {
+		margin-left: 0.6em;
 		padding-top: 0.6em;
 		padding-bottom: 0.6em;
 		border-bottom: 3px solid var(--gold);
@@ -81,6 +88,9 @@ const isActive = (href: string) => pathname === href;
 		nav {
 			justify-content: center;
 			text-align: center;
+		}
+		.nav-link {
+			margin: 0 0.5em;
 		}
 	}
 </style>

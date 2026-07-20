@@ -4,6 +4,7 @@
 export const SITE_TITLE = "A Clear Path";
 export const SITE_DESCRIPTION =
 	"One-on-one mentoring for young Muslim men, ages 11-17, in Kanata. Faith, character, and academics grounded in real experience.";
+export const NAV_WORDMARK = "one-on-one mentoring";
 
 export const CONTACT_NAME = "Hakeem Kashif";
 export const CONTACT_EMAIL = "HakeemKashif34@gmail.com";
