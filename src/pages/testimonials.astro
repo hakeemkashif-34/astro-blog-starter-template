@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// The source material only listed people to reach out to for quotes, not
+// actual quotes. Replace each `quote` below with what they say once you've
+// collected it. Don't publish these placeholders as-is.
+const testimonials = [
+	{
+		quote: "[Add Saba's testimonial here.]",
+		name: "Saba",
+		role: "Professor, University of Ottawa",
+	},
+	{
+		quote: "[Add Tayiba's testimonial here.]",
+		name: "Tayiba",
+		role: "Grade 6 Teacher",
+	},
+	{
+		quote: "[Add a testimonial from Hamza's mom here.]",
+		name: "Hamza's Mom",
+		role: "Parent",
+	},
+	{
+		quote: "[Add Ream's testimonial here.]",
+		name: "Ream",
+		role: "KMA Coordinator",
+	},
+];
+---
+
+<Layout
+	title="Testimonials | A Clear Path"
+	description="What parents and colleagues say about mentoring with A Clear Path."
+>
+	<section class="intro">
+		<span class="eyebrow">Testimonials</span>
+		<h1>What People Say</h1>
+	</section>
+
+	<section class="grid">
+		{
+			testimonials.map((t) => (
+				<figure class="card">
+					<span class="mark" aria-hidden="true">&rdquo;</span>
+					<blockquote>{t.quote}</blockquote>
+					<figcaption>
+						<span class="name">{t.name}</span>
+						<span class="role">{t.role}</span>
+					</figcaption>
+				</figure>
+			))
+		}
+	</section>
+
+	<section class="cta">
+		<a href="/apply" class="button">Apply Now</a>
+	</section>
+</Layout>
+
+<style>
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5em;
+		margin-top: 1.5em;
+	}
+	.card {
+		border: 1px solid var(--border);
+		border-top: 3px solid var(--gold);
+		padding: 1.8em 1.8em 1.6em 1.8em;
+		margin: 0;
+		position: relative;
+	}
+	.mark {
+		display: block;
+		font-family: var(--font-heading);
+		font-size: 3em;
+		line-height: 1;
+		color: var(--gold);
+		margin-bottom: 0.1em;
+	}
+	blockquote {
+		font-family: var(--font-heading);
+		font-size: 1.2em;
+		margin: 0 0 1.2em 0;
+		padding: 0;
+		border: none;
+		color: var(--deep-green);
+	}
+	figcaption {
+		display: flex;
+		flex-direction: column;
+		padding-top: 1em;
+		border-top: 1px solid var(--border);
+	}
+	.name {
+		font-weight: 700;
+	}
+	.role {
+		font-size: 0.9em;
+		color: var(--gold);
+	}
+	.cta {
+		text-align: center;
+		padding-top: 2.5em;
+		border-top: 1px solid var(--border);
+		margin-top: 2.5em;
+	}
+	@media (max-width: 700px) {
+		.grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
