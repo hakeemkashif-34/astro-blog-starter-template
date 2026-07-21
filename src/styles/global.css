@@ -155,6 +155,13 @@ hr {
 	background: var(--gold-deep);
 	border-color: var(--gold-deep);
 	color: var(--paper);
+	transform: translateY(-2px);
+	box-shadow: 0 10px 20px -8px rgba(23, 50, 42, 0.4);
+}
+
+.button:active {
+	transform: translateY(0);
+	box-shadow: 0 4px 10px -6px rgba(23, 50, 42, 0.4);
 }
 
 .button-outline {
@@ -173,6 +180,11 @@ hr {
 .button-outline:hover {
 	background: var(--deep-green);
 	color: var(--paper);
+	transform: translateY(-2px);
+}
+
+.button-outline:active {
+	transform: translateY(0);
 }
 
 /* Eyebrow carries a short letterhead rule beneath it, echoing the
@@ -212,13 +224,20 @@ hr {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-	a,
+	a {
+		transition:
+			color 0.15s ease,
+			background-color 0.15s ease,
+			border-color 0.15s ease;
+	}
 	.button,
 	.button-outline {
 		transition:
 			color 0.15s ease,
 			background-color 0.15s ease,
-			border-color 0.15s ease;
+			border-color 0.15s ease,
+			transform 0.15s ease,
+			box-shadow 0.15s ease;
 	}
 }
 
