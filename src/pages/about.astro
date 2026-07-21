@@ -10,6 +10,13 @@ const eduIcons: Record<string, string> = {
 		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21V9l8-5 8 5v12"/><path d="M4 21h16"/><path d="M9 21v-6h6v6"/></svg>',
 };
 
+const mentIcons: Record<string, string> = {
+	people:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M2.5 20c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17.5" cy="7" r="2.3"/><path d="M14.7 14.3c.8-.3 1.7-.5 2.6-.5 3 0 5.5 2.5 5.5 5.5"/></svg>',
+	book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4.5c2-1 5-1 8 0v15c-3-1-6-1-8 0z"/><path d="M20 4.5c-2-1-5-1-8 0v15c3-1 6-1 8 0z"/></svg>',
+	play: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9.3"/><path d="M10 8.3v7.4l6-3.7-6-3.7z" fill="currentColor" stroke="none"/></svg>',
+};
+
 // Real thumbnails can't be pulled in automatically here (YouTube is
 // unreachable from this environment), so each card links out with a
 // styled placeholder instead of a real frame grab. Swap in real
@@ -80,17 +87,25 @@ const youtubeVideos = [
 		<h2>Mentoring Experience</h2>
 
 		<div class="sub-section">
-			<h3><span class="step-num">1.</span> One-on-One Mentorship</h3>
+			<h3>
+				<span class="sub-icon" set:html={mentIcons.people} />
+				<span class="step-num">1.</span> One-on-One Mentorship
+			</h3>
 			<p>
 				My one-on-one mentoring started after parents reached out through my mom to mentor their
 				kids. After the 3rd request, I decided to turn it into something formal. Since then, I've
-				mentored 4 boys, ages 11 to 17, over the last 4 years, in areas like tutoring, coaching,
-				sports, advice for high school transitions, and motivation for taking school seriously.
+				mentored 4 boys, ages 11 to 17, over the last 4 years, in areas like tutoring (computer
+				science, math, and more), coaching, sports, advice for high school transitions, and
+				motivation for taking school seriously. I have a real passion for teaching, and it shows
+				up in everything I do.
 			</p>
 		</div>
 
 		<div class="sub-section">
-			<h3><span class="step-num">2.</span> Course Mentorship</h3>
+			<h3>
+				<span class="sub-icon" set:html={mentIcons.book} />
+				<span class="step-num">2.</span> Course Mentorship
+			</h3>
 			<p>
 				I ran the Empowering Muslim Youth program at the Kanata Muslim Association. After the
 				success of a Java Boot Camp I taught, my coordinator recognized my teaching ability and
@@ -113,7 +128,10 @@ const youtubeVideos = [
 		</div>
 
 		<div class="sub-section">
-			<h3><span class="step-num">3.</span> External Mentorship</h3>
+			<h3>
+				<span class="sub-icon" set:html={mentIcons.play} />
+				<span class="step-num">3.</span> External Mentorship
+			</h3>
 			<p>
 				I also mentor through YouTube. I started the channel to share ideas that could genuinely
 				help people and to motivate viewers to build better habits. The comments have been full
@@ -152,15 +170,11 @@ const youtubeVideos = [
 	</section>
 
 	<section class="bio-section">
-		<h2>Sports</h2>
+		<h2>Hobbies</h2>
 		<p>
-			I've completed all swimming levels, played competitive soccer 5 years ago, and played
-			competitive AAA basketball a year ago. I also enjoy badminton and table tennis.
+			<strong>Sports:</strong> completed all swimming levels, played competitive soccer 5 years
+			ago, played competitive AAA basketball a year ago, and I enjoy badminton and table tennis.
 		</p>
-	</section>
-
-	<section class="cta">
-		<a href="/apply" class="button">Apply Now</a>
 	</section>
 </Layout>
 
@@ -204,10 +218,23 @@ const youtubeVideos = [
 		margin-top: 1em;
 	}
 	.sub-section h3 {
+		display: flex;
+		align-items: center;
+		gap: 0.45em;
 		margin-bottom: 0.7em;
 	}
 	.step-num {
 		color: var(--gold-deep);
+	}
+	.sub-icon {
+		flex: none;
+		width: 1.15em;
+		height: 1.15em;
+		color: var(--gold-deep);
+	}
+	.sub-icon :global(svg) {
+		width: 100%;
+		height: 100%;
 	}
 	.education-list {
 		list-style: none;
@@ -277,9 +304,15 @@ const youtubeVideos = [
 		border-top: 3px solid var(--gold);
 		text-decoration: none;
 		color: var(--ink);
+		transition:
+			transform 0.15s ease,
+			box-shadow 0.15s ease,
+			border-top-color 0.15s ease;
 	}
 	.video-card:hover {
 		border-top-color: var(--gold-deep);
+		transform: translateY(-3px);
+		box-shadow: 0 14px 28px -12px rgba(23, 50, 42, 0.35);
 	}
 	.video-card:hover .video-info h4 {
 		color: var(--gold-deep);
@@ -316,12 +349,6 @@ const youtubeVideos = [
 		.video-grid {
 			grid-template-columns: 1fr;
 		}
-	}
-	.cta {
-		text-align: center;
-		padding-top: 2.5em;
-		border-top: 1px solid var(--border);
-		margin-top: 2.5em;
 	}
 	@media (max-width: 600px) {
 		.intro {
