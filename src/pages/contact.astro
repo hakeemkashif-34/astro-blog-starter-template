@@ -11,11 +11,14 @@ import {
 
 const linkedinDisplay = LINKEDIN_URL.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
-// TODO: swap "Watch on YouTube" for the actual video title once confirmed.
 const methods = [
 	{ label: "Email", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
 	{ label: "Phone", value: CONTACT_PHONE, href: `tel:+1${CONTACT_PHONE_HREF}` },
-	{ label: "YouTube", value: "Watch on YouTube", href: YOUTUBE_URL },
+	{
+		label: "YouTube",
+		value: "Watch This for the Sake of Allah — It Could Change Your Life FOREVER.",
+		href: YOUTUBE_URL,
+	},
 	{ label: "LinkedIn", value: linkedinDisplay, href: LINKEDIN_URL },
 ];
 ---

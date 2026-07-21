@@ -1,8 +1,37 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { CONTACT_NAME } from "../consts";
+import { CONTACT_NAME, YOUTUBE_URL } from "../consts";
 
 const kmaPhotos = ["/kma-program-1.jpg", "/kma-program-2.jpg", "/kma-program-3.jpg"];
+
+// Real thumbnails can't be pulled in automatically here (YouTube is
+// unreachable from this environment), so each card links out with a
+// styled placeholder instead of a real frame grab. Swap in real
+// thumbnail images later if you want the actual YouTube previews.
+const youtubeVideos = [
+	{
+		title: "Day in the Life of a Muslim Trying to Become Better | Ottawa 🇨🇦",
+		url: "https://www.youtube.com/watch?v=wWQGASe8gv8",
+		blurb:
+			"A day-in-my-life video following my morning routine, made to inspire viewers to improve their own mornings, whether that's eating healthier, staying active, or building a stronger relationship with Allah SWT.",
+	},
+	{
+		title: "Day in a Life of a Muslim High School Student",
+		url: "https://www.youtube.com/watch?v=hfUdDBgYD2I",
+		blurb: "A look at what a day actually looks like as a practicing Muslim in high school.",
+	},
+	{
+		title: "Life Rules in 21 Seconds (For a Practicing Muslim)",
+		url: "https://www.youtube.com/watch?v=qTNLCtbRHsk",
+		blurb: "A quick set of life rules for practicing Muslims, in under 21 seconds.",
+	},
+	{
+		title: "Watch This for the Sake of Allah — It Could Change Your Life FOREVER.",
+		url: YOUTUBE_URL,
+		blurb:
+			"One of my first videos, and still one of the ones I'm most proud of. The comments were flooded with positive feedback.",
+	},
+];
 ---
 
 <Layout
@@ -41,31 +70,67 @@ const kmaPhotos = ["/kma-program-1.jpg", "/kma-program-2.jpg", "/kma-program-3.j
 
 	<section class="bio-section">
 		<h2>Mentoring Experience</h2>
-		<p>
-			My one-on-one mentoring started after parents reached out through my mom to mentor their
-			kids. After the third request, I decided to turn it into something formal. Since then, I've
-			mentored four boys, ages 11 to 17, over the last four years, in areas like tutoring,
-			coaching, sports, advice for high school transitions, and motivation for taking school
-			seriously.
-		</p>
-		<p>
-			I also ran the Empowering Muslim Youth program at the Kanata Muslim Association. After the
-			success of a Java Boot Camp I taught, my coordinator recognized my teaching ability and
-			asked me to run the program. As the course instructor, I taught 30 students essential
-			skills like self-improvement, discipline, and goal-setting, tailoring lessons to different
-			learning styles to help build resilience, time management, and accountability.
-		</p>
-		<p class="gallery-caption">From the Empowering Muslim Youth Program at KMA</p>
-		<div class="gallery">
-			{
-				kmaPhotos.map((src) => (
-					<img
-						src={src}
-						alt="Teaching the Empowering Muslim Youth program at the Kanata Muslim Association"
-						class="gallery-photo"
-					/>
-				))
-			}
+
+		<div class="sub-section">
+			<h3>One-on-One Mentorship</h3>
+			<p>
+				My one-on-one mentoring started after parents reached out through my mom to mentor their
+				kids. After the third request, I decided to turn it into something formal. Since then,
+				I've mentored four boys, ages 11 to 17, over the last four years, in areas like tutoring,
+				coaching, sports, advice for high school transitions, and motivation for taking school
+				seriously.
+			</p>
+		</div>
+
+		<div class="sub-section">
+			<h3>Course Mentorship</h3>
+			<p>
+				I ran the Empowering Muslim Youth program at the Kanata Muslim Association. After the
+				success of a Java Boot Camp I taught, my coordinator recognized my teaching ability and
+				asked me to run the program. As the course instructor, I taught 30 students essential
+				skills like self-improvement, discipline, and goal-setting, tailoring lessons to
+				different learning styles to help build resilience, time management, and accountability.
+			</p>
+			<p class="gallery-caption">From the Empowering Muslim Youth Program at KMA</p>
+			<div class="gallery">
+				{
+					kmaPhotos.map((src) => (
+						<img
+							src={src}
+							alt="Teaching the Empowering Muslim Youth program at the Kanata Muslim Association"
+							class="gallery-photo"
+						/>
+					))
+				}
+			</div>
+		</div>
+
+		<div class="sub-section">
+			<h3>External Mentorship</h3>
+			<p>
+				I also mentor through YouTube. I started the channel to share ideas that could genuinely
+				help people and to motivate viewers to build better habits. The comments have been full
+				of positive feedback, and I plan to keep making videos as another way to help young people
+				improve their lives.
+			</p>
+			<div class="video-grid">
+				{
+					youtubeVideos.map((v) => (
+						<a class="video-card" href={v.url} target="_blank" rel="noopener noreferrer">
+							<div class="video-thumb">
+								<svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true">
+									<circle cx="12" cy="12" r="10.5" />
+									<path d="M10 8.3v7.4l6-3.7-6-3.7z" />
+								</svg>
+							</div>
+							<div class="video-info">
+								<h4>{v.title}</h4>
+								<p>{v.blurb}</p>
+							</div>
+						</a>
+					))
+				}
+			</div>
 		</div>
 	</section>
 
@@ -128,6 +193,15 @@ const kmaPhotos = ["/kma-program-1.jpg", "/kma-program-2.jpg", "/kma-program-3.j
 	.bio-section p:last-child {
 		margin-bottom: 0;
 	}
+	.sub-section {
+		margin-top: 1.8em;
+	}
+	.sub-section:first-of-type {
+		margin-top: 1em;
+	}
+	.sub-section h3 {
+		margin-bottom: 0.7em;
+	}
 	.education-list {
 		list-style: none;
 		padding-left: 0;
@@ -163,6 +237,59 @@ const kmaPhotos = ["/kma-program-1.jpg", "/kma-program-2.jpg", "/kma-program-3.j
 	}
 	@media (max-width: 700px) {
 		.gallery {
+			grid-template-columns: 1fr;
+		}
+	}
+	.video-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.2em;
+		margin-top: 1.3em;
+	}
+	.video-card {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid var(--border);
+		border-top: 3px solid var(--gold);
+		text-decoration: none;
+		color: var(--ink);
+	}
+	.video-card:hover {
+		border-top-color: var(--gold-deep);
+	}
+	.video-card:hover .video-info h4 {
+		color: var(--gold-deep);
+	}
+	.video-thumb {
+		aspect-ratio: 16 / 9;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--ink);
+	}
+	.play-icon {
+		width: 3em;
+		height: 3em;
+		fill: none;
+		stroke: var(--gold);
+		stroke-width: 1.2;
+	}
+	.play-icon path {
+		fill: var(--gold);
+		stroke: none;
+	}
+	.video-info {
+		padding: 1.2em 1.3em;
+	}
+	.video-info h4 {
+		margin-bottom: 0.4em;
+	}
+	.video-info p {
+		font-size: 0.92em;
+		margin-bottom: 0;
+	}
+	@media (max-width: 700px) {
+		.video-grid {
 			grid-template-columns: 1fr;
 		}
 	}
