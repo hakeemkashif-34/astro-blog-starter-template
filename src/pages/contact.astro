@@ -5,21 +5,18 @@ import {
 	CONTACT_EMAIL,
 	CONTACT_PHONE,
 	CONTACT_PHONE_HREF,
-	YOUTUBE_URL,
+	YOUTUBE_CHANNEL_URL,
 	LINKEDIN_URL,
 } from "../consts";
 
 const linkedinDisplay = LINKEDIN_URL.replace(/^https?:\/\//, "").replace(/\/$/, "");
+const youtubeDisplay = YOUTUBE_CHANNEL_URL.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
 const methods = [
 	{ label: "Email", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
 	{ label: "Phone", value: CONTACT_PHONE, href: `tel:+1${CONTACT_PHONE_HREF}` },
-	{
-		label: "YouTube",
-		value: "Watch This for the Sake of Allah — It Could Change Your Life FOREVER.",
-		href: YOUTUBE_URL,
-	},
 	{ label: "LinkedIn", value: linkedinDisplay, href: LINKEDIN_URL },
+	{ label: "YouTube", value: youtubeDisplay, href: YOUTUBE_CHANNEL_URL },
 ];
 ---
 
@@ -30,7 +27,6 @@ const methods = [
 	<section class="intro">
 		<span class="eyebrow">Contact</span>
 		<h1>Get in Touch</h1>
-		<p class="lede">Reach out through any of these. I usually get back within a day or two.</p>
 	</section>
 
 	<section class="contact-block">
@@ -57,10 +53,6 @@ const methods = [
 </Layout>
 
 <style>
-	.lede {
-		font-size: 1.1em;
-		max-width: 600px;
-	}
 	.contact-block {
 		border: 1px solid var(--border);
 		border-top: 3px solid var(--gold);

@@ -1,16 +1,18 @@
 ---
-import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF } from "../consts";
 const today = new Date();
+const isContactPage = Astro.url.pathname.replace(/\/+$/, "") === "/contact";
 ---
 
 <footer>
 	<div class="footer-inner">
 		<p class="wordmark">A Clear Path</p>
-		<p class="contact">
-			<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-			<span aria-hidden="true">·</span>
-			<a href={`tel:+1${CONTACT_PHONE_HREF}`}>{CONTACT_PHONE}</a>
-		</p>
+		{
+			!isContactPage && (
+				<p class="contact-link">
+					<a href="/contact">Get in Touch</a>
+				</p>
+			)
+		}
 		<p class="copyright">&copy; {today.getFullYear()} A Clear Path. All rights reserved.</p>
 	</div>
 </footer>
@@ -35,15 +37,11 @@ const today = new Date();
 		color: var(--ink);
 		margin: 0 0 0.6em 0;
 	}
-	.contact {
+	.contact-link {
 		margin: 0 0 0.5em 0;
 	}
-	.contact a {
+	.contact-link a {
 		color: var(--deep-green);
-	}
-	.contact span {
-		margin: 0 0.5em;
-		color: var(--gold);
 	}
 	.copyright {
 		margin: 0;
