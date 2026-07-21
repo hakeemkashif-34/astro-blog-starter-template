@@ -7,7 +7,7 @@ export const SITE_DESCRIPTION =
 export const NAV_WORDMARK = "one-on-one mentoring";
 
 export const CONTACT_NAME = "Hakeem Kashif";
-export const CONTACT_EMAIL = "HakeemKashif34@gmail.com";
+export const CONTACT_EMAIL = "hakeemkashif34@gmail.com";
 export const CONTACT_PHONE = "613-600-5161";
 export const CONTACT_PHONE_HREF = "6136005161";
 export const YOUTUBE_URL = "https://www.youtube.com/watch?v=Yor19_IoBoE&lc=UgwLdDObyLs6O_qWrUl4AaABAg";

@@ -4,6 +4,12 @@ import { CONTACT_NAME, YOUTUBE_URL } from "../consts";
 
 const kmaPhotos = ["/kma-program-1.jpg", "/kma-program-2.jpg", "/kma-program-3.jpg"];
 
+const eduIcons: Record<string, string> = {
+	cap: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 9l10-4.5L22 9l-10 4.5L2 9z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg>',
+	school:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21V9l8-5 8 5v12"/><path d="M4 21h16"/><path d="M9 21v-6h6v6"/></svg>',
+};
+
 // Real thumbnails can't be pulled in automatically here (YouTube is
 // unreachable from this environment), so each card links out with a
 // styled placeholder instead of a real frame grab. Swap in real
@@ -52,14 +58,20 @@ const youtubeVideos = [
 		<h2>Education</h2>
 		<ul class="education-list">
 			<li>
-				<strong>University:</strong> I'm currently studying computer science at Carleton University,
-				going into my 2nd year insha'Allah. Alongside school, I'm working as a software engineer
-				intern at Shopify.
+				<div class="edu-icon" set:html={eduIcons.cap} />
+				<p>
+					<strong>University:</strong> I'm currently studying computer science at Carleton
+					University, going into my 2nd year insha'Allah. Alongside school, I'm working as a
+					software engineer intern at Shopify.
+				</p>
 			</li>
 			<li>
-				<strong>High School:</strong> I went to Merivale High School for grades 9 and 10, where I
-				was part of the International Baccalaureate program. From there, I finished grades 11 and
-				12 at Earl of March.
+				<div class="edu-icon" set:html={eduIcons.school} />
+				<p>
+					<strong>High School:</strong> I went to Merivale High School for grades 9 and 10, where
+					I was part of the International Baccalaureate program. From there, I finished grades 11
+					and 12 at Earl of March.
+				</p>
 			</li>
 		</ul>
 	</section>
@@ -86,7 +98,7 @@ const youtubeVideos = [
 				skills like self-improvement, discipline, and goal-setting, tailoring lessons to
 				different learning styles to help build resilience, time management, and accountability.
 			</p>
-			<p class="gallery-caption">From the Empowering Muslim Youth Program at KMA</p>
+			<p class="gallery-caption">From the Empowering Muslim Youth Program at the Kanata Muslim Association</p>
 			<div class="gallery">
 				{
 					kmaPhotos.map((src) => (
@@ -203,12 +215,29 @@ const youtubeVideos = [
 		margin: 0;
 	}
 	.education-list li {
+		display: flex;
+		gap: 1em;
+		align-items: flex-start;
 		padding-left: 1.3em;
 		border-left: 2px solid var(--gold);
 		margin-bottom: 1.3em;
 	}
 	.education-list li:last-child {
 		margin-bottom: 0;
+	}
+	.education-list p {
+		margin: 0;
+	}
+	.edu-icon {
+		flex: none;
+		width: 1.6em;
+		height: 1.6em;
+		margin-top: 0.15em;
+		color: var(--gold-deep);
+	}
+	.edu-icon :global(svg) {
+		width: 100%;
+		height: 100%;
 	}
 	.gallery-caption {
 		font-family: var(--font-heading);
