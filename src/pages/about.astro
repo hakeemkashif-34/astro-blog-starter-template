@@ -1,6 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { CONTACT_NAME } from "../consts";
+
+// Real photos from the Empowering Muslim Youth program at KMA aren't on
+// hand yet. Once you have them, drop them in public/ (e.g.
+// kma-program-1.jpg, kma-program-2.jpg) and swap the two .gallery-placeholder
+// divs below for <img src="/kma-program-1.jpg" alt="..." class="gallery-photo" />.
 ---
 
 <Layout
@@ -22,20 +27,19 @@ import { CONTACT_NAME } from "../consts";
 	</section>
 
 	<section class="bio-section">
-		<h2>University</h2>
-		<p>
-			I'm currently studying computer science at Carleton University, going into my second year
-			insha'Allah. Alongside school, I'm working as a software engineer intern at Shopify.
-		</p>
-	</section>
-
-	<section class="bio-section">
-		<h2>High School</h2>
-		<p>
-			I went to Maryvale High School for grades nine and ten, where I was part of the
-			International Baccalaureate program. From there, I finished grades eleven and twelve at
-			Earl of March.
-		</p>
+		<h2>Education</h2>
+		<ul class="education-list">
+			<li>
+				<strong>University:</strong> I'm currently studying computer science at Carleton University,
+				going into my second year insha'Allah. Alongside school, I'm working as a software engineer
+				intern at Shopify.
+			</li>
+			<li>
+				<strong>High School:</strong> I went to Maryvale High School for grades nine and ten, where
+				I was part of the International Baccalaureate program. From there, I finished grades eleven
+				and twelve at Earl of March.
+			</li>
+		</ul>
 	</section>
 
 	<section class="bio-section">
@@ -54,6 +58,15 @@ import { CONTACT_NAME } from "../consts";
 			skills like self-improvement, discipline, and goal-setting, tailoring lessons to different
 			learning styles to help build resilience, time management, and accountability.
 		</p>
+		<p class="gallery-caption">From the Empowering Muslim Youth Program at KMA</p>
+		<div class="gallery">
+			<div class="gallery-placeholder" role="img" aria-label="Photo from the Empowering Muslim Youth program at KMA">
+				Photo
+			</div>
+			<div class="gallery-placeholder" role="img" aria-label="Photo from the Empowering Muslim Youth program at KMA">
+				Photo
+			</div>
+		</div>
 	</section>
 
 	<section class="bio-section">
@@ -114,6 +127,54 @@ import { CONTACT_NAME } from "../consts";
 	}
 	.bio-section p:last-child {
 		margin-bottom: 0;
+	}
+	.education-list {
+		list-style: none;
+		padding-left: 0;
+		margin: 0;
+	}
+	.education-list li {
+		padding-left: 1.3em;
+		border-left: 2px solid var(--gold);
+		margin-bottom: 1.3em;
+	}
+	.education-list li:last-child {
+		margin-bottom: 0;
+	}
+	.gallery-caption {
+		font-family: var(--font-heading);
+		font-weight: 600;
+		font-size: 0.85em;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--gold-deep);
+		margin-bottom: 0.9em;
+	}
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.2em;
+	}
+	.gallery-placeholder {
+		aspect-ratio: 4 / 3;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid var(--border);
+		border-top: 3px solid var(--gold);
+		font-family: var(--font-heading);
+		color: var(--gold-deep);
+		background: var(--paper);
+	}
+	.gallery-photo {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+	}
+	@media (max-width: 600px) {
+		.gallery {
+			grid-template-columns: 1fr;
+		}
 	}
 	.cta {
 		text-align: center;

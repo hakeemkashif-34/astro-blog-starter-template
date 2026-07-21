@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+	CONTACT_NAME,
+	CONTACT_EMAIL,
+	CONTACT_PHONE,
+	CONTACT_PHONE_HREF,
+	YOUTUBE_URL,
+	LINKEDIN_URL,
+} from "../consts";
+
+const methods = [
+	{ label: "Email", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
+	{ label: "Phone", value: CONTACT_PHONE, href: `tel:+1${CONTACT_PHONE_HREF}` },
+	{ label: "YouTube", value: "Watch my videos", href: YOUTUBE_URL },
+	{ label: "LinkedIn", value: "Connect with me", href: LINKEDIN_URL },
+];
+---
+
+<Layout
+	title={`Contact | ${CONTACT_NAME}`}
+	description="Get in touch with Hakeem Kashif about A Clear Path mentoring."
+>
+	<section class="intro">
+		<span class="eyebrow">Contact</span>
+		<h1>Get in Touch</h1>
+		<p class="lede">
+			I'm {CONTACT_NAME}. You can reach me directly through any of these, and I try to get back
+			within a day or two.
+		</p>
+	</section>
+
+	<section class="grid">
+		{
+			methods.map((m) => (
+				<a class="card" href={m.href} target={m.href.startsWith("http") ? "_blank" : undefined} rel={m.href.startsWith("http") ? "noopener noreferrer" : undefined}>
+					<span class="label">{m.label}</span>
+					<span class="value">{m.value}</span>
+				</a>
+			))
+		}
+	</section>
+
+	<section class="cta">
+		<a href="/apply" class="button">Apply Now</a>
+	</section>
+</Layout>
+
+<style>
+	.lede {
+		font-size: 1.1em;
+		max-width: 600px;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5em;
+		margin-top: 1.5em;
+	}
+	.card {
+		display: block;
+		border: 1px solid var(--border);
+		border-top: 3px solid var(--gold);
+		padding: 1.7em;
+		text-decoration: none;
+		color: var(--ink);
+	}
+	.card:hover {
+		border-top-color: var(--gold-deep);
+	}
+	.card:hover .value {
+		color: var(--gold-deep);
+	}
+	.label {
+		display: block;
+		font-family: var(--font-heading);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		font-size: 0.8em;
+		color: var(--gold-deep);
+		margin-bottom: 0.5em;
+	}
+	.value {
+		display: block;
+		font-family: var(--font-body);
+		font-size: 1.25em;
+		color: var(--deep-green);
+	}
+	.cta {
+		text-align: center;
+		padding-top: 2.5em;
+		border-top: 1px solid var(--border);
+		margin-top: 2.5em;
+	}
+	@media (max-width: 700px) {
+		.grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -7,6 +7,7 @@ const links = [
 	{ href: "/", label: "Mentorship" },
 	{ href: "/about", label: "About" },
 	{ href: "/testimonials", label: "Testimonials" },
+	{ href: "/contact", label: "Contact" },
 ];
 
 const isActive = (href: string) => pathname === href;
@@ -85,7 +86,7 @@ const isActive = (href: string) => pathname === href;
 		color: var(--ink);
 		text-decoration: none;
 		padding: 0.4em 0.2em;
-		margin: 0 0.9em;
+		margin: 0 0.75em;
 		border-bottom: 3px solid transparent;
 	}
 	.nav-link:hover {
@@ -123,6 +124,9 @@ const isActive = (href: string) => pathname === href;
 		}
 		.nav-link {
 			margin: 0 0.6em;
+		}
+		.nav-divider {
+			display: none;
 		}
 	}
 </style>
