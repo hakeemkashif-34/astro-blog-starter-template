@@ -7,27 +7,34 @@ const links = [
 	{ href: "/", label: "Mentorship" },
 	{ href: "/about", label: "About" },
 	{ href: "/testimonials", label: "Testimonials" },
+	{ href: "/contact", label: "Contact" },
 ];
 
 const isActive = (href: string) => pathname === href;
 ---
 
 <header>
-	<nav>
-		<a href="/" class="wordmark">{NAV_WORDMARK}</a>
-		<div class="nav-links">
-			{
-				links.map((link) => (
-					<a href={link.href} class:list={["nav-link", { active: isActive(link.href) }]}>
-						{link.label}
-					</a>
-				))
-			}
-			<a href="/apply" class:list={["button", "nav-apply", { active: isActive("/apply") }]}>
-				Apply
-			</a>
-		</div>
-	</nav>
+	<div class="header-inner">
+		<nav>
+			<a href="/" class="wordmark">{NAV_WORDMARK}</a>
+			<div class="nav-right">
+				<div class="nav-links">
+					{
+						links.map((link) => (
+							<a href={link.href} class:list={["nav-link", { active: isActive(link.href) }]}>
+								{link.label}
+							</a>
+						))
+					}
+				</div>
+				<span class="nav-divider" aria-hidden="true"></span>
+				<a href="/apply" class:list={["button", "nav-apply", { active: isActive("/apply") }]}>
+					Apply
+				</a>
+			</div>
+		</nav>
+	</div>
+	<div class="header-rule" aria-hidden="true"></div>
 </header>
 <style>
 	header {
@@ -35,62 +42,91 @@ const isActive = (href: string) => pathname === href;
 		top: 0;
 		z-index: 10;
 		background: var(--cream);
-		border-bottom: 1px solid var(--border);
+	}
+	.header-inner {
+		border-bottom: 2px solid var(--gold);
+	}
+	.header-rule {
+		height: 1px;
+		background: var(--deep-green);
 	}
 	nav {
-		width: 960px;
-		max-width: calc(100% - 2.5em);
+		width: 1080px;
+		max-width: calc(100% - 3.5em);
 		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		gap: 0.6em 1.5em;
-		padding: 1.1em 0;
+		gap: 0.8em 1.5em;
+		padding: 1.6em 0 1.5em 0.75em;
 	}
 	.wordmark {
-		font-family: var(--font-heading);
+		font-family: var(--font-body);
 		font-style: italic;
-		font-size: 1.15em;
-		letter-spacing: 0.01em;
-		color: var(--deep-green);
+		font-weight: 500;
+		font-size: 1.25em;
+		color: var(--ink);
 		text-decoration: none;
 		white-space: nowrap;
+	}
+	.nav-right {
+		display: flex;
+		align-items: center;
+		gap: 1.4em;
 	}
 	.nav-links {
 		display: flex;
 		align-items: center;
-		gap: 0.3em;
 	}
 	.nav-link {
-		font-family: var(--font-body);
-		font-size: 0.96em;
-		color: var(--deep-green);
+		font-family: var(--font-heading);
+		font-weight: 500;
+		font-size: 0.95em;
+		color: var(--ink);
 		text-decoration: none;
 		padding: 0.4em 0.2em;
-		margin: 0 0.7em;
+		margin: 0 0.75em;
 		border-bottom: 3px solid transparent;
+	}
+	.nav-link:hover {
+		color: var(--deep-green);
 	}
 	.nav-link.active {
 		border-bottom-color: var(--gold);
-		font-weight: 700;
+		font-weight: 600;
+		color: var(--ink);
+	}
+	.nav-divider {
+		display: block;
+		width: 1px;
+		height: 1.5em;
+		background: var(--border);
 	}
 	.nav-apply {
-		margin-left: 0.6em;
-		padding-top: 0.6em;
-		padding-bottom: 0.6em;
-		border-bottom: 3px solid var(--gold);
+		padding: 0.65em 1.5em;
+		border-bottom: 3px solid var(--deep-green);
 	}
 	.nav-apply.active {
-		border-bottom-color: var(--deep-green);
+		background: var(--deep-green);
+		border-color: var(--deep-green);
+		color: var(--paper);
 	}
-	@media (max-width: 600px) {
+	@media (max-width: 640px) {
 		nav {
 			justify-content: center;
 			text-align: center;
+			padding-left: 0;
+		}
+		.nav-right {
+			justify-content: center;
+			flex-wrap: wrap;
 		}
 		.nav-link {
-			margin: 0 0.5em;
+			margin: 0 0.6em;
+		}
+		.nav-divider {
+			display: none;
 		}
 	}
 </style>
