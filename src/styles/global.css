@@ -58,7 +58,7 @@ main {
 	width: 1000px;
 	max-width: calc(100% - 3em);
 	margin: 0 auto;
-	padding: 4em 0;
+	padding: 3.5em 0;
 }
 
 h1,
@@ -195,7 +195,7 @@ hr {
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.12em;
-	font-size: 0.82em;
+	font-size: 0.94em;
 	color: var(--gold-deep);
 	margin-bottom: 1em;
 }
@@ -238,6 +238,19 @@ hr {
 			border-color 0.15s ease,
 			transform 0.15s ease,
 			box-shadow 0.15s ease;
+	}
+	/* JS adds .reveal only to sections not yet on screen, so nothing
+	   already visible on load ever flashes. */
+	.reveal {
+		opacity: 0;
+		transform: translateY(20px);
+		transition:
+			opacity 0.7s ease,
+			transform 0.7s ease;
+	}
+	.reveal.in-view {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
 

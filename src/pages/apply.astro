@@ -73,7 +73,7 @@ const formIcon =
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 1.5em;
-		padding: 2.5em 0;
+		padding: 2.1em 0;
 		border-top: 1px solid var(--border);
 		margin-top: 1em;
 	}
@@ -82,6 +82,15 @@ const formIcon =
 		border-top: 3px solid var(--gold);
 		padding: 1.7em 1.5em;
 		text-align: center;
+		transition:
+			transform 0.15s ease,
+			box-shadow 0.15s ease,
+			border-top-color 0.15s ease;
+	}
+	.step:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 14px 26px -14px rgba(23, 50, 42, 0.3);
+		border-top-color: var(--gold-deep);
 	}
 	.step-number {
 		display: block;
@@ -94,7 +103,7 @@ const formIcon =
 		margin: 0;
 	}
 	.form-section {
-		padding-top: 2.5em;
+		padding-top: 2.1em;
 		border-top: 1px solid var(--border);
 		margin-top: 1em;
 	}
