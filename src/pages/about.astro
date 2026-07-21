@@ -17,6 +17,22 @@ const mentIcons: Record<string, string> = {
 	play: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9.3"/><path d="M10 8.3v7.4l6-3.7-6-3.7z" fill="currentColor" stroke="none"/></svg>',
 };
 
+const h2Icons: Record<string, string> = {
+	education:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4h9l3 3v13H6z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>',
+	experience:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="12"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
+	heart:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20s-7-4.5-9.5-9C.5 7 2 3.5 5.5 3c2-.3 3.7.7 4.5 2 .8-1.3 2.5-2.3 4.5-2C17.9 3.5 19.5 7 21.5 11c-2.5 4.5-9.5 9-9.5 9z"/></svg>',
+	star: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 16.9 6.4 20.1l1.4-6.3-4.8-4.3 6.4-.6z"/></svg>',
+};
+
+const hobbyIcons: Record<string, string> = {
+	sport: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="2.3"/><path d="M9 21l1.5-6L8 12l1-4 3 1 3-1 1 4-2.5 3L15 21"/></svg>',
+	flame:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c1 3-3 4-3 7a3 3 0 0 0 6 0c0-1-1-1.5-1-2.5 1.5 1 2.5 3 2.5 5A5.5 5.5 0 1 1 8 12c0-2 1-3 1.5-4.5C10 6 11 4.5 12 3z"/></svg>',
+};
+
 // Real thumbnails can't be pulled in automatically here (YouTube is
 // unreachable from this environment), so each card links out with a
 // styled placeholder instead of a real frame grab. Swap in real
@@ -62,7 +78,7 @@ const youtubeVideos = [
 	</section>
 
 	<section class="bio-section">
-		<h2>Education</h2>
+		<h2><span class="h2-icon" set:html={h2Icons.education} /> Education</h2>
 		<ul class="education-list">
 			<li>
 				<div class="edu-icon" set:html={eduIcons.cap} />
@@ -84,7 +100,7 @@ const youtubeVideos = [
 	</section>
 
 	<section class="bio-section">
-		<h2>Mentoring Experience</h2>
+		<h2><span class="h2-icon" set:html={h2Icons.experience} /> Mentoring Experience</h2>
 
 		<div class="sub-section">
 			<h3>
@@ -160,7 +176,7 @@ const youtubeVideos = [
 	</section>
 
 	<section class="bio-section">
-		<h2>Why I Mentor</h2>
+		<h2><span class="h2-icon" set:html={h2Icons.heart} /> Why I Mentor</h2>
 		<p>
 			I'm at an age where I'm still young enough to connect with kids, but old enough to have
 			gone through similar experiences and offer real advice. There's a lack of mentoring
@@ -170,11 +186,24 @@ const youtubeVideos = [
 	</section>
 
 	<section class="bio-section">
-		<h2>Hobbies</h2>
-		<p>
-			<strong>Sports:</strong> completed all swimming levels, played competitive soccer 5 years
-			ago, played competitive AAA basketball a year ago, and I enjoy badminton and table tennis.
-		</p>
+		<h2><span class="h2-icon" set:html={h2Icons.star} /> Hobbies</h2>
+		<ul class="education-list">
+			<li>
+				<div class="edu-icon" set:html={hobbyIcons.sport} />
+				<p>
+					<strong>Sports:</strong> completed all swimming levels, played competitive soccer 5
+					years ago, played competitive AAA basketball a year ago, and I enjoy badminton and table
+					tennis.
+				</p>
+			</li>
+			<li>
+				<div class="edu-icon" set:html={hobbyIcons.flame} />
+				<p>
+					<strong>Passion:</strong> teaching. I ran a Java course for kids at the Kanata Muslim
+					Association and have done math tutoring in the past as well.
+				</p>
+			</li>
+		</ul>
 	</section>
 </Layout>
 
@@ -207,6 +236,21 @@ const youtubeVideos = [
 		padding-top: 2.5em;
 		border-top: 1px solid var(--border);
 		margin-top: 2.5em;
+	}
+	h2 {
+		display: flex;
+		align-items: center;
+		gap: 0.35em;
+	}
+	.h2-icon {
+		flex: none;
+		width: 0.8em;
+		height: 0.8em;
+		color: var(--gold-deep);
+	}
+	.h2-icon :global(svg) {
+		width: 100%;
+		height: 100%;
 	}
 	.bio-section p:last-child {
 		margin-bottom: 0;
