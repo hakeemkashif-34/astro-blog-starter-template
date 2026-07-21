@@ -94,6 +94,13 @@ p {
 	margin: 0 0 1.3em 0;
 }
 
+/* Without this, a section's last child keeps its own bottom margin on
+   top of the section's padding, so the gap before a divider ends up
+   bigger than the matching gap after it. */
+section > *:last-child {
+	margin-bottom: 0;
+}
+
 strong,
 b {
 	font-weight: 700;
