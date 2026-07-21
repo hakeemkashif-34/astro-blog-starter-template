@@ -2,10 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { CONTACT_NAME } from "../consts";
 
-// Real photos from the Empowering Muslim Youth program at KMA aren't on
-// hand yet. Once you have them, drop them in public/ (e.g.
-// kma-program-1.jpg, kma-program-2.jpg) and swap the two .gallery-placeholder
-// divs below for <img src="/kma-program-1.jpg" alt="..." class="gallery-photo" />.
+const kmaPhotos = ["/kma-program-1.jpg", "/kma-program-2.jpg", "/kma-program-3.jpg"];
 ---
 
 <Layout
@@ -60,12 +57,15 @@ import { CONTACT_NAME } from "../consts";
 		</p>
 		<p class="gallery-caption">From the Empowering Muslim Youth Program at KMA</p>
 		<div class="gallery">
-			<div class="gallery-placeholder" role="img" aria-label="Photo from the Empowering Muslim Youth program at KMA">
-				Photo
-			</div>
-			<div class="gallery-placeholder" role="img" aria-label="Photo from the Empowering Muslim Youth program at KMA">
-				Photo
-			</div>
+			{
+				kmaPhotos.map((src) => (
+					<img
+						src={src}
+						alt="Teaching the Empowering Muslim Youth program at the Kanata Muslim Association"
+						class="gallery-photo"
+					/>
+				))
+			}
 		</div>
 	</section>
 
@@ -152,26 +152,16 @@ import { CONTACT_NAME } from "../consts";
 	}
 	.gallery {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		gap: 1.2em;
-	}
-	.gallery-placeholder {
-		aspect-ratio: 4 / 3;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border: 1px solid var(--border);
-		border-top: 3px solid var(--gold);
-		font-family: var(--font-heading);
-		color: var(--gold-deep);
-		background: var(--paper);
 	}
 	.gallery-photo {
 		width: 100%;
 		aspect-ratio: 4 / 3;
 		object-fit: cover;
+		border-top: 3px solid var(--gold);
 	}
-	@media (max-width: 600px) {
+	@media (max-width: 700px) {
 		.gallery {
 			grid-template-columns: 1fr;
 		}
