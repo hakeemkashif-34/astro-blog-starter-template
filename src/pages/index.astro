@@ -186,7 +186,7 @@ const covers = [
 	}
 
 	section {
-		padding: 3em 0;
+		padding: 2.5em 0;
 		border-top: 1px solid var(--border);
 	}
 	.hero {
@@ -223,6 +223,15 @@ const covers = [
 		border-top: 3px solid var(--gold);
 		padding: 1.7em 1.2em;
 		text-align: center;
+		transition:
+			transform 0.15s ease,
+			box-shadow 0.15s ease,
+			border-top-color 0.15s ease;
+	}
+	.fact-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 14px 26px -14px rgba(23, 50, 42, 0.3);
+		border-top-color: var(--gold-deep);
 	}
 	.fact-icon {
 		width: 2em;
@@ -268,6 +277,15 @@ const covers = [
 		border: 1px solid var(--border);
 		border-top: 3px solid var(--gold);
 		padding: 1.7em;
+		transition:
+			transform 0.15s ease,
+			box-shadow 0.15s ease,
+			border-top-color 0.15s ease;
+	}
+	.cover-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 14px 26px -14px rgba(23, 50, 42, 0.3);
+		border-top-color: var(--gold-deep);
 	}
 	.cover-num {
 		position: absolute;
@@ -295,6 +313,7 @@ const covers = [
 
 	.cta {
 		text-align: center;
+		padding-bottom: 0;
 	}
 
 	@media (max-width: 800px) {
