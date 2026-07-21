@@ -31,72 +31,108 @@ const h2Icons: Record<string, string> = {
 	flag: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3v18"/><path d="M5 4h11l-2.5 3.5L16 11H5"/></svg>',
 };
 
+const coverIcons: Record<string, string> = {
+	crescent:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 4.5a7.5 7.5 0 1 0 4.8 13.3A9 9 0 0 1 15 4.5z"/><path d="M18.3 4l.5 1.3 1.2.5-1.2.5-.5 1.3-.5-1.3-1.2-.5 1.2-.5.5-1.3z" fill="currentColor" stroke="none"/></svg>',
+	shield:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>',
+	compass:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8.5"/><path d="M15 9l-2 5-5 2 2-5 5-2z"/></svg>',
+	mic: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9.5" y="3" width="5" height="9" rx="2.5"/><path d="M6 11a6 6 0 0 0 12 0"/><path d="M12 17v3.5M9 20.5h6"/></svg>',
+	signpost:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21V9"/><path d="M12 6l7 2.5-7 2.5"/><path d="M12 6L5 8.5 12 11"/></svg>',
+	scale:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v17M8 20h8"/><path d="M5 7h5M14 7h5"/><path d="M5 7l-2.5 5a2.5 2.5 0 0 0 5 0L5 7z"/><path d="M19 7l-2.5 5a2.5 2.5 0 0 0 5 0L19 7z"/></svg>',
+	book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5.5c-1.5-1-4-1.5-6-1v13c2 0 4.5.5 6 1.5V5.5z"/><path d="M12 5.5c1.5-1 4-1.5 6-1v13c-2 0-4.5.5-6 1.5V5.5z"/></svg>',
+	target:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>',
+	building:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21V9l8-5 8 5v12"/><path d="M4 21h16"/><path d="M9 21v-6h6v6"/><path d="M9 12h.01M15 12h.01M12 9h.01"/></svg>',
+	run: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="14" cy="4.5" r="1.6" fill="currentColor" stroke="none"/><path d="M10 21l1.5-5-2.5-2.5 1-4 3 2.5h3"/><path d="M12.5 14L16 12M11.5 16l-3.5 2.5"/></svg>',
+	chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5h16v10H9l-4 3.5V15H4V5z"/><path d="M9 9h6M9 12h4"/></svg>',
+};
+
 const covers = [
 	{
 		title: "Islamic Habits",
 		why: "A blessing to learn at a young age. It builds a strong Islamic foundation that carries into adulthood.",
 		example:
 			"Morning and evening adhkar, duas after specific actions, sunnah practices, reading and memorizing Qur'an with tajweed.",
+		icon: "crescent",
 	},
 	{
 		title: "Staying Muslim & Avoiding Haram",
 		why: "Growing up Muslim in a non-Muslim environment brings pressures that need to be addressed directly.",
 		example: "Maintaining Islamic identity in and outside of school.",
+		icon: "shield",
 	},
 	{
 		title: "Character, Discipline & Confidence",
 		why: "These qualities shape how a young man carries himself and handles challenges, now and later in life.",
 		example: "Building daily discipline, taking ownership, developing self-confidence.",
+		icon: "compass",
 	},
 	{
 		title: "Public Speaking",
 		why: "I'm naturally good at this, and it ties into my passion for teaching. It's a skill I've been developing myself over the last couple of years, and I want to help you build it too.",
 		example: "Practicing how to present ideas clearly, whether to an audience or an individual.",
+		icon: "mic",
 	},
 	{
 		title: "School Transitions",
 		why: "This is a stage where the friends a child chooses will stick with them, along with new social pressures.",
 		example: "Choosing good friends, staying consistent with prayer at a non-Islamic school.",
+		icon: "signpost",
 	},
 	{
 		title: "Real Experience, Good and Bad",
 		why: "Sharing real lessons, positive and negative, helps a child see that growth comes from setbacks too.",
 		example: "Not memorizing enough Qur'an, not making better use of time growing up.",
+		icon: "scale",
 	},
 	{
 		title: "Academic Help",
 		why: "Support in specific subjects relieves pressure and builds confidence in school.",
 		example: "How to study effectively, motivation to take academics seriously, building a timetable.",
+		icon: "book",
 	},
 	{
 		title: "Personal Goals",
 		why: "Helping a child define clear, measurable goals and work towards them.",
 		example: "Memorizing more Qur'an, improving at basketball, a better grade in a course.",
+		icon: "target",
 	},
 	{
 		title: "High School & Course Planning",
 		why: "Early guidance helps a child make informed decisions about their academic path.",
 		example: "What courses to take, whether to do summer school or online classes.",
+		icon: "building",
 	},
 	{
 		title: "Sports & Healthy Living",
 		why: "Physical activity supports discipline, confidence, and overall well-being.",
 		example: "Advice on playing or improving at soccer, basketball, or running.",
+		icon: "run",
 	},
 	{
 		title: "Whatever You Raise",
 		why: "Every child is different, so parents can bring specific concerns or focus areas at any time.",
 		example: "This stays open-ended, by design.",
+		icon: "chat",
 	},
 ];
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
 	<section class="hero">
-		<h1>A Clear Path</h1>
+		<div class="hero-heading">
+			<span class="path-line" aria-hidden="true"></span>
+			<h1>A Clear Path</h1>
+			<span class="path-line" aria-hidden="true"></span>
+		</div>
 		<p class="lede">
 			Personalized 1-on-1 mentoring for young Muslim men, ages 11-17, grounded in Islamic values,
-			character, academics, and sports.
+			character, academics, sports, and more!
 		</p>
 		<div class="hero-actions">
 			<a href="/apply" class="button">Apply Now</a>
@@ -133,7 +169,6 @@ const covers = [
 				))
 			}
 		</div>
-		<p class="facts-footnote">There's no cancellation fee. Just as much notice as possible, in advance.</p>
 	</section>
 
 	<section id="what-we-cover" class="covers">
@@ -143,7 +178,10 @@ const covers = [
 				covers.map((item, i) => (
 					<div class="cover-card">
 						<span class="cover-num">{i + 1}</span>
-						<h3>{item.title}</h3>
+						<div class="cover-head">
+							<span class="cover-icon" set:html={coverIcons[item.icon]} />
+							<h3>{item.title}</h3>
+						</div>
 						<p class="cover-why">{item.why}</p>
 						<p class="cover-example">{item.example}</p>
 					</div>
@@ -168,9 +206,39 @@ const covers = [
 		padding-top: 1em;
 		padding-bottom: 1.5em;
 	}
+	.hero-heading {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1.3em;
+		margin-bottom: 0.4em;
+	}
 	.hero h1 {
 		font-size: 3.2em;
-		margin-bottom: 0.4em;
+		margin-bottom: 0;
+	}
+	.path-line {
+		flex: 1 1 auto;
+		max-width: 100px;
+		height: 2px;
+		position: relative;
+		background: linear-gradient(90deg, transparent, var(--gold) 40%, var(--gold) 60%, transparent);
+	}
+	.path-line::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--gold);
+		transform: translate(-50%, -50%);
+	}
+	.path-line:last-child::after {
+		left: auto;
+		right: 0;
+		transform: translate(50%, -50%);
 	}
 	.lede {
 		font-size: 1.18em;
@@ -202,6 +270,7 @@ const covers = [
 		flex: none;
 		width: 0.8em;
 		height: 0.8em;
+		margin-top: -0.12em;
 		color: var(--gold-deep);
 	}
 	.h2-icon :global(svg) {
@@ -252,7 +321,7 @@ const covers = [
 	.fact-label {
 		font-weight: 700;
 		text-transform: uppercase;
-		font-size: 0.8em;
+		font-size: 0.95em;
 		letter-spacing: 0.05em;
 		color: var(--gold);
 		margin: 0 0 0.4em 0;
@@ -260,10 +329,6 @@ const covers = [
 	.fact-note {
 		font-size: 0.9em;
 		margin: 0;
-	}
-	.facts-footnote {
-		margin-top: 1.5em;
-		font-size: 0.9em;
 	}
 
 	.covers-grid {
@@ -296,9 +361,25 @@ const covers = [
 		font-size: 1.4em;
 		color: var(--gold-deep);
 	}
-	.cover-card h3 {
+	.cover-head {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
 		margin-bottom: 0.55em;
 		padding-right: 1.5em;
+	}
+	.cover-head h3 {
+		margin-bottom: 0;
+	}
+	.cover-icon {
+		flex: none;
+		width: 1.4em;
+		height: 1.4em;
+		color: var(--gold-deep);
+	}
+	.cover-icon :global(svg) {
+		width: 100%;
+		height: 100%;
 	}
 	.cover-why {
 		margin-bottom: 0.7em;
@@ -325,6 +406,18 @@ const covers = [
 		}
 		.hero h1 {
 			font-size: 2.3em;
+		}
+		.hero-heading {
+			gap: 0.7em;
+		}
+		.path-line {
+			max-width: 36px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.path-line {
+			display: none;
 		}
 	}
 </style>
