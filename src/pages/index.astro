@@ -3,11 +3,24 @@ import Layout from "../layouts/Layout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const facts = [
-	{ label: "Ages", value: "11–17", note: "flexible outside this range" },
-	{ label: "Frequency", value: "1–2 hrs / week", note: "ideally on weekends" },
-	{ label: "Price", value: "$30 / hour", note: "first meeting is free" },
-	{ label: "Location", value: "Kanata", note: "at my family home, parent present" },
+	{ label: "Ages", value: "11–17", note: "flexible outside this range", icon: "ages" },
+	{ label: "Frequency", value: "1–2 hrs / week", note: "ideally on weekends", icon: "clock" },
+	{ label: "Price", value: "$30 / hour", note: "first meeting is free", icon: "coin" },
+	{
+		label: "Location",
+		value: "Kanata",
+		note: "at my family home, parent present",
+		icon: "pin",
+	},
 ];
+
+const icons: Record<string, string> = {
+	ages: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>',
+	clock:
+		'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>',
+	coin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v9M9.6 9.7c0-1.2 1-2 2.4-2s2.4.8 2.4 1.9c0 2.5-4.8 1.3-4.8 3.8 0 1.1 1 1.9 2.4 1.9s2.4-.7 2.4-1.9"/></svg>',
+	pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg>',
+};
 
 const covers = [
 	{
@@ -27,7 +40,7 @@ const covers = [
 	},
 	{
 		title: "Public Speaking",
-		why: "Confidence speaking to a group, or even one-on-one, is a skill that keeps paying off long after mentorship ends.",
+		why: "I'm naturally good at this, and it ties into my passion for teaching. It's a skill I've been developing myself over the last couple of years, and I want to help you build it too.",
 		example: "Practicing how to present ideas clearly, whether to an audience or an individual.",
 	},
 	{
@@ -70,11 +83,11 @@ const covers = [
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
 	<section class="hero">
-		<span class="eyebrow">Mentorship</span>
+		<span class="eyebrow">Personalized 1:1 Mentoring</span>
 		<h1>A Clear Path</h1>
 		<p class="lede">
-			One-on-one mentoring for young Muslim men, ages 11 to 17. Weekly sessions grounded in
-			Islamic values, character, academics, and sports, led personally, one boy at a time.
+			1-on-1 mentoring for young Muslim men, ages 11 to 17. Weekly sessions grounded in Islamic
+			values, character, academics, and sports, led personally, 1 boy at a time.
 		</p>
 		<div class="hero-actions">
 			<a href="/apply" class="button">Apply Now</a>
@@ -85,7 +98,7 @@ const covers = [
 	<section class="overview">
 		<h2>Overview</h2>
 		<p>
-			Mentorship is one-on-one, not a class. Each week we meet to work through whatever matters
+			Mentorship is 1-on-1, not a class. Each week we meet to work through whatever matters
 			most that week: Islamic habits, character and discipline, school, sports, or whatever a
 			parent wants addressed directly. Sessions take place at my family home in Kanata, with a
 			parent or family member present, and can include optional outdoor activities or mosque
@@ -103,6 +116,7 @@ const covers = [
 			{
 				facts.map((fact) => (
 					<div class="fact-card">
+						<div class="fact-icon" set:html={icons[fact.icon]} />
 						<p class="fact-value">{fact.value}</p>
 						<p class="fact-label">{fact.label}</p>
 						<p class="fact-note">{fact.note}</p>
@@ -110,17 +124,16 @@ const covers = [
 				))
 			}
 		</div>
-		<p class="facts-footnote">
-			There's no cancellation fee. Just as much notice as possible, in advance, is appreciated.
-		</p>
+		<p class="facts-footnote">There's no cancellation fee. Just as much notice as possible, in advance.</p>
 	</section>
 
 	<section id="what-we-cover" class="covers">
 		<h2>What We Cover</h2>
 		<div class="covers-grid">
 			{
-				covers.map((item) => (
+				covers.map((item, i) => (
 					<div class="cover-card">
+						<span class="cover-num">{i + 1}</span>
 						<h3>{item.title}</h3>
 						<p class="cover-why">{item.why}</p>
 						<p class="cover-example">{item.example}</p>
@@ -183,6 +196,16 @@ const covers = [
 		padding: 1.7em 1.2em;
 		text-align: center;
 	}
+	.fact-icon {
+		width: 2em;
+		height: 2em;
+		margin: 0 auto 0.7em auto;
+		color: var(--gold-deep);
+	}
+	.fact-icon :global(svg) {
+		width: 100%;
+		height: 100%;
+	}
 	.fact-value {
 		font-family: var(--font-heading);
 		font-size: 1.6em;
@@ -213,12 +236,23 @@ const covers = [
 		margin-top: 1.5em;
 	}
 	.cover-card {
+		position: relative;
 		border: 1px solid var(--border);
 		border-top: 3px solid var(--gold);
 		padding: 1.7em;
 	}
+	.cover-num {
+		position: absolute;
+		top: 1em;
+		right: 1em;
+		font-family: var(--font-heading);
+		font-weight: 700;
+		font-size: 1.4em;
+		color: var(--border);
+	}
 	.cover-card h3 {
 		margin-bottom: 0.55em;
+		padding-right: 1.5em;
 	}
 	.cover-why {
 		margin-bottom: 0.7em;
