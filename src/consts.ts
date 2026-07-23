@@ -17,3 +17,5 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/hakeem-kashif/";
 // Replace with the real Google Form "embedded=true" URL when it's ready.
 // e.g. https://docs.google.com/forms/d/e/XXXXXXXX/viewform?embedded=true
 export const GOOGLE_FORM_EMBED_URL = "";
+
+export const APPLY_FORM_URL = "https://forms.gle/o66Dq3QVNMf9ZpJL8";

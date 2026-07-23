@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_TITLE, SITE_DESCRIPTION, APPLY_FORM_URL } from "../consts";
 
 const facts = [
 	{ label: "Ages", value: "11–17", note: "flexible outside this range", icon: "ages" },
@@ -159,7 +159,7 @@ const covers = [
 			character, academics, sports, and more!
 		</p>
 		<div class="hero-actions">
-			<a href="/apply" class="button">Apply Now</a>
+			<a href={APPLY_FORM_URL} target="_blank" rel="noopener noreferrer" class="button">Apply Now</a>
 			<a href="#what-we-cover" class="button-outline">What We Cover</a>
 		</div>
 	</section>
@@ -224,7 +224,7 @@ const covers = [
 			The first meeting is free. It's simply a chance to meet, ask questions, and see if it's a
 			good fit.
 		</p>
-		<a href="/apply" class="button">Apply Now</a>
+		<a href={APPLY_FORM_URL} target="_blank" rel="noopener noreferrer" class="button">Apply Now</a>
 	</section>
 </Layout>
 

@@ -1,5 +1,5 @@
 ---
-import { NAV_WORDMARK } from "../consts";
+import { NAV_WORDMARK, APPLY_FORM_URL } from "../consts";
 
 const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
 
@@ -28,7 +28,12 @@ const isActive = (href: string) => pathname === href;
 					}
 				</div>
 				<span class="nav-divider" aria-hidden="true"></span>
-				<a href="/apply" class:list={["button", "nav-apply", { active: isActive("/apply") }]}>
+				<a
+					href={APPLY_FORM_URL}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="button nav-apply"
+				>
 					Apply
 				</a>
 			</div>
