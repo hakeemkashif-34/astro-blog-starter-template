@@ -14,30 +14,6 @@ const facts = [
 	},
 ];
 
-const guideIllustration = `<svg viewBox="0 0 360 180" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-	<g class="guide-path">
-		<line x1="20" y1="150" x2="340" y2="150" stroke-width="2"/>
-		<circle cx="20" cy="150" r="3" fill="currentColor" stroke="none"/>
-		<circle cx="340" cy="150" r="3" fill="currentColor" stroke="none"/>
-		<path d="M235 150v-7M258 150v-7M281 150v-7" stroke-width="1.5"/>
-	</g>
-	<g class="guide-mentor">
-		<circle cx="93" cy="53" r="15"/>
-		<path d="M93 68 C91 83 91 94 93 107"/>
-		<path d="M93 107 C88 121 83 136 76 150"/>
-		<path d="M93 107 C97 121 101 136 106 150"/>
-		<path d="M91 76 C86 87 83 97 81 105"/>
-		<path d="M96 74 C116 79 136 84 154 89"/>
-	</g>
-	<g class="guide-mentee">
-		<circle cx="172" cy="73" r="12"/>
-		<path d="M172 85 C170 96 170 107 172 117"/>
-		<path d="M172 117 C167 127 162 138 157 150"/>
-		<path d="M172 117 C179 129 187 139 195 150"/>
-		<path d="M170 90 C176 98 181 106 186 112"/>
-	</g>
-</svg>`;
-
 const icons: Record<string, string> = {
 	ages: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>',
 	clock:
@@ -160,10 +136,6 @@ const covers = [
 		</div>
 	</section>
 
-	<section class="guide-illustration" aria-hidden="true">
-		<span class="guide-svg" set:html={guideIllustration} />
-	</section>
-
 	<section class="overview">
 		<h2><span class="h2-icon" set:html={h2Icons.overview} /> Overview</h2>
 		<p>Mentorship is 1-on-1, not a class of students.</p>
@@ -277,32 +249,6 @@ const covers = [
 		gap: 1em;
 		justify-content: center;
 		flex-wrap: wrap;
-	}
-
-	.guide-illustration {
-		display: flex;
-		justify-content: center;
-		padding: 0 0 1.8em 0;
-		border-top: none;
-	}
-	.guide-svg {
-		width: 300px;
-		max-width: 78%;
-	}
-	.guide-svg :global(svg) {
-		display: block;
-		width: 100%;
-		height: auto;
-	}
-	.guide-svg :global(.guide-path) {
-		color: var(--gold-deep);
-		stroke: var(--gold-deep);
-	}
-	.guide-svg :global(.guide-mentee) {
-		stroke: var(--gold-deep);
-	}
-	.guide-svg :global(.guide-mentor) {
-		stroke: var(--deep-green);
 	}
 
 	section {
