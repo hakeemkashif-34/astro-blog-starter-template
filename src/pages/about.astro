@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { CONTACT_NAME, YOUTUBE_URL, LINKEDIN_URL } from "../consts";
 
-const kmaPhotos = ["/kma-program-1.jpg", "/kma-program-2.jpg", "/kma-program-3.jpg"];
+const kmaPhotos = ["/kma-program-2.jpg", "/kma-program-3.jpg"];
 
 const eduIcons: Record<string, string> = {
 	cap: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 9l10-4.5L22 9l-10 4.5L2 9z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg>',
@@ -122,7 +122,7 @@ const youtubeVideos = [
 				students, teaching them essential skills like self-improvement, discipline,
 				goal-setting, time management, and character building, all from an Islamic perspective.
 			</p>
-			<p class="gallery-caption">From the Empowering Muslim Youth Program at the Kanata Muslim Association</p>
+			<p class="gallery-caption">From the Empowering Muslim Youth Program</p>
 			<div class="gallery">
 				{
 					kmaPhotos.map((src) => (
@@ -151,6 +151,7 @@ const youtubeVideos = [
 				whether it's sleeping early, eating healthy, staying active, increased worship, etc.
 			</p>
 			<p>Here are some of the videos that people have benefited from.</p>
+			<p class="gallery-caption">From the Hakeem Productions YouTube Channel</p>
 			<div class="video-grid">
 				{
 					youtubeVideos.map((v) => (
@@ -330,7 +331,7 @@ const youtubeVideos = [
 	}
 	.gallery {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 		gap: 1.2em;
 	}
 	.gallery-photo {
