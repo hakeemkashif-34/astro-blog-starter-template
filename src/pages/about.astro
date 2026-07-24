@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { CONTACT_NAME, YOUTUBE_URL } from "../consts";
+import { CONTACT_NAME, YOUTUBE_URL, LINKEDIN_URL } from "../consts";
 
 const kmaPhotos = ["/kma-program-1.jpg", "/kma-program-2.jpg", "/kma-program-3.jpg"];
 
@@ -37,28 +37,27 @@ const youtubeVideos = [
 	{
 		title: "Day in a Life of a Muslim High School Student",
 		url: "https://www.youtube.com/watch?v=wWQGASe8gv8",
-		blurb:
-			"A look at what a day actually looks like as a practicing Muslim in high school, met with a flood of positive comments.",
+		blurb: "Met with a flood of positive comments, Alhamdulillah.",
 		thumbnail: "/video-thumb-1.jpg",
 	},
 	{
 		title: "Day in the Life of a Muslim Trying to Become Better in Ottawa, Canada",
 		url: "https://www.youtube.com/watch?v=Yor19_IoBoE",
 		blurb:
-			"A day in my life as a university student in Ottawa, from eating healthier to staying active to growing closer to Allah SWT.",
+			"A full day-in-the-life vlog as a university student trying to be the best version of myself.",
 		thumbnail: "/video-thumb-2.jpg",
 	},
 	{
 		title: "Life Rules in 21 Seconds (For a Practicing Muslim)",
 		url: "https://www.youtube.com/watch?v=hfUdDBgYD2I",
-		blurb: "A quick set of life rules to live by, in under 21 seconds.",
+		blurb: "A short reminder of life rules to live by.",
 		thumbnail: "/video-thumb-3.jpg",
 	},
 	{
 		title: "Watch This for the Sake of Allah. It Could Change Your Life FOREVER.",
 		url: YOUTUBE_URL,
 		blurb:
-			"A reminder, for myself first and anyone else who might benefit, that this life is nothing but a test we should prepare to pass, inshaAllah.",
+			"A short reminder that this life is nothing but a test, and that we should prepare to pass it.",
 		thumbnail: "/video-thumb-4.jpg",
 	},
 ];
@@ -84,17 +83,15 @@ const youtubeVideos = [
 			<li>
 				<div class="edu-icon" set:html={eduIcons.cap} />
 				<p>
-					<strong>University:</strong> I'm currently studying computer science at Carleton
-					University, going into my 2nd year insha'Allah. Alongside school, I'm working as a
-					software engineer intern at Shopify.
+					<strong>University:</strong> Currently studying computer science at Carleton University,
+					and going into 2nd year insha'Allah. Working as a software engineer intern at Shopify.
 				</p>
 			</li>
 			<li>
 				<div class="edu-icon" set:html={eduIcons.school} />
 				<p>
-					<strong>High School:</strong> I went to Merivale High School for grades 9 and 10, where
-					I was part of the International Baccalaureate program. From there, I finished grades 11
-					and 12 at Earl of March.
+					<strong>High School:</strong> Attended Merivale High School for grades 9-10 for the
+					International Baccalaureate program. Finished grades 11-12 at Earl of March.
 				</p>
 			</li>
 		</ul>
@@ -109,12 +106,9 @@ const youtubeVideos = [
 				<span class="step-num">1.</span> One-on-One Mentorship
 			</h3>
 			<p>
-				My one-on-one mentoring started after parents reached out through my mom to mentor their
-				kids. After the 3rd request, I decided to turn it into something formal. Since then, I've
-				mentored 4 boys, ages 11 to 17, over the last 4 years, in areas like tutoring (computer
-				science, math, and more), coaching, sports, advice for high school transitions, and
-				motivation for taking school seriously. I have a real passion for teaching, and it shows
-				up in everything I do.
+				My 1-on-1 mentorship started after a couple of parents reached out to my mom to mentor
+				their kids on aspects like high school transitioning, taking school and religion more
+				seriously, as well as tutoring in subjects like math and English.
 			</p>
 		</div>
 
@@ -124,11 +118,9 @@ const youtubeVideos = [
 				<span class="step-num">2.</span> Course Mentorship
 			</h3>
 			<p>
-				I ran the Empowering Muslim Youth program at the Kanata Muslim Association. After the
-				success of a Java Boot Camp I taught, my coordinator recognized my teaching ability and
-				asked me to run the program. As the course instructor, I taught 30 students essential
-				skills like self-improvement, discipline, and goal-setting, tailoring lessons to
-				different learning styles to help build resilience, time management, and accountability.
+				I ran the Empowering Muslim Youth Program at the Kanata Muslim Association with over 25
+				students, teaching them essential skills like self-improvement, discipline,
+				goal-setting, time management, and character building, all from an Islamic perspective.
 			</p>
 			<p class="gallery-caption">From the Empowering Muslim Youth Program at the Kanata Muslim Association</p>
 			<div class="gallery">
@@ -150,11 +142,15 @@ const youtubeVideos = [
 				<span class="step-num">3.</span> External Mentorship
 			</h3>
 			<p>
-				I also mentor through YouTube. I started the channel to share ideas that could genuinely
-				help people and to motivate viewers to build better habits. The comments have been full
-				of positive feedback, and I plan to keep making videos as another way to help young people
-				improve their lives.
+				I also have a YouTube channel, which I started because I know people are more likely to
+				follow good habits when they see someone actually living them, not just talking about
+				them.
 			</p>
+			<p>
+				On it, I share videos encouraging youth, or anyone watching, to improve their lifestyle,
+				whether it's sleeping early, eating healthy, staying active, increased worship, etc.
+			</p>
+			<p>Here are some of the videos that people have benefited from.</p>
 			<div class="video-grid">
 				{
 					youtubeVideos.map((v) => (
@@ -180,10 +176,10 @@ const youtubeVideos = [
 	<section class="bio-section">
 		<h2><span class="h2-icon" set:html={h2Icons.heart} /> Why I Mentor</h2>
 		<p>
-			I'm at an age where I'm still young enough to connect with kids, but old enough to have
-			gone through similar experiences and offer real advice. There's a lack of mentoring
-			opportunities like this, something I would have greatly benefited from at that age, and now
-			I want to offer that to others.
+			I'm at an age where I'm still young enough to connect with kids but old enough to have gone
+			through what they will experience and offer real and applicable advice. There's a lack of
+			mentoring opportunities like this, and it's something I would have greatly benefited from at
+			a young age. Now I want to offer that to others.
 		</p>
 	</section>
 
@@ -193,16 +189,18 @@ const youtubeVideos = [
 			<li>
 				<div class="edu-icon" set:html={hobbyIcons.sport} />
 				<p>
-					<strong>Sports:</strong> completed all swimming levels, played competitive soccer 5
-					years ago, played competitive AAA basketball a year ago, and I enjoy badminton and table
-					tennis.
+					<strong>Sports:</strong> I played competitive basketball for three years, mixed martial
+					arts for three years, competitive soccer for five years, and completed all the
+					swimming levels.
 				</p>
 			</li>
 			<li>
 				<div class="edu-icon" set:html={hobbyIcons.flame} />
 				<p>
-					<strong>Passion:</strong> teaching. I ran a Java course for kids at the Kanata Muslim
-					Association and have done math tutoring in the past as well.
+					<strong>Passion:</strong> I have a passion for teaching. I ran a Java course for kids at
+					the Kanata Muslim Association and Stittsville Muslim Association (available on{" "}
+					<a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">my LinkedIn</a>), and
+					have done math tutoring in the past as well.
 				</p>
 			</li>
 		</ul>
